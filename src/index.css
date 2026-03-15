@@ -38,6 +38,11 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
+  }
 }
 
 @layer utilities {

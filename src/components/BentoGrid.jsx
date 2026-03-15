@@ -19,7 +19,7 @@ export default function BentoGrid() {
       <motion.div
         initial={{ opacity: 0.2, filter: "blur(8px)", y: 20, scale: 0.95 }}
         whileInView={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
-        viewport={{ once: false, margin: "-15%" }}
+        viewport={{ once: true, margin: "-15%" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className="text-fluid-h2 mb-12 text-glow text-center md:text-left">
@@ -36,7 +36,7 @@ export default function BentoGrid() {
               key={`mob-${project.id}`}
               initial={{ opacity: 0.2, filter: "blur(8px)", scale: 0.95 }}
               whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-              viewport={{ once: false, margin: "-10%" }}
+              viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               className="glass-panel neon-glow p-6 flex flex-col relative overflow-hidden"
             >

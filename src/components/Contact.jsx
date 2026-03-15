@@ -13,7 +13,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0.2, filter: "blur(8px)", x: -40, scale: 0.95 }}
           whileInView={{ opacity: 1, filter: "blur(0px)", x: 0, scale: 1 }}
-          viewport={{ once: false, margin: "-10%" }}
+          viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col gap-6"
         >
@@ -68,7 +68,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0.2, filter: "blur(8px)", x: 40, scale: 0.95 }}
           whileInView={{ opacity: 1, filter: "blur(0px)", x: 0, scale: 1 }}
-          viewport={{ once: false, margin: "-10%" }}
+          viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
           <form
@@ -143,7 +143,7 @@ export default function Contact() {
       <motion.footer 
         initial={{ opacity: 0.2, filter: "blur(8px)", scale: 0.95 }}
         whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-        viewport={{ once: false, margin: "-5%" }}
+        viewport={{ once: true, margin: "-5%" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="mt-12 text-center text-sm text-subtle font-mono border-t border-white/5 pt-8"
       >

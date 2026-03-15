@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useScroll, useMotionValueEvent } from 'framer-motion';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 20);
+  });
 
   return (
     <nav className="fixed top-6 w-full z-50 flex justify-center px-4 pointer-events-none">

@@ -33,7 +33,7 @@ export default function About() {
       <motion.div
         initial={{ opacity: 0.2, filter: "blur(8px)", y: 20, scale: 0.95 }}
         whileInView={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
-        viewport={{ once: false, margin: "-15%" }}
+        viewport={{ once: true, margin: "-15%" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="glass-panel p-8 md:p-12 mb-12"
       >
@@ -93,7 +93,7 @@ export default function About() {
                 key={index}
                 initial={{ opacity: 0.2, filter: "blur(8px)", scale: 0.95 }}
                 whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                viewport={{ once: false, margin: "-15%" }}
+                viewport={{ once: true, margin: "-15%" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
               >
