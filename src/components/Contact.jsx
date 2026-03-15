@@ -26,7 +26,7 @@ export default function Contact() {
         </p>
 
         <a 
-          href="mailto:hello@example.com" 
+          href="mailto:shikhars.singh27@gmail.com" 
           className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full font-medium overflow-hidden transition-transform hover:scale-105 active:scale-95 bg-white text-black z-10"
         >
           <span className="relative z-10 font-bold tracking-wide text-lg flex items-center gap-2">

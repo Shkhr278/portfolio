@@ -5,33 +5,33 @@ import { ExternalLink, Github, ArrowUpRight, Code2 } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: 'DeFi Dashboard',
-    description: 'Analytics dashboard for decentralized finance protocols.',
-    tags: ['React', 'TypeScript', 'Web3'],
+    title: 'CareerVision AI',
+    description: 'Agentic AI-powered career platform providing personalized recommendations and an ATS builder.',
+    tags: ['React', 'Node.js', 'FastAPI'],
     colSpan: 'md:col-span-2 md:row-span-1',
     color: 'from-[var(--color-neon-purple)] to-[var(--color-neon-blue)]'
   },
   {
     id: 2,
-    title: 'AI Vault',
-    description: 'Text-to-image application powered by custom Stable Diffusion models.',
-    tags: ['Next.js', 'FastAPI'],
+    title: 'FairFare',
+    description: 'Full-stack expense splitting platform with real-time balance tracking and automated settlement.',
+    tags: ['MERN', 'Firebase'],
     colSpan: 'md:col-span-2 md:row-span-1',
     color: 'from-[var(--color-neon-pink)] to-[var(--color-neon-purple)]'
   },
   {
     id: 3,
-    title: 'Real-time Comms',
-    description: 'End-to-end encrypted messaging platform designed for max speed.',
-    tags: ['Socket.io', 'Node.js'],
+    title: 'System Design',
+    description: 'Building secure authentication, database architectures, and robust RESTful APIs.',
+    tags: ['MongoDB', 'Express'],
     colSpan: 'md:col-span-2 md:row-span-1',
     color: 'from-[var(--color-neon-blue)] to-[var(--color-neon-pink)]'
   },
   {
     id: 4,
-    title: 'Storefront',
-    description: 'High-performance headless e-commerce.',
-    tags: ['React', 'Shopify'],
+    title: 'Frontend API',
+    description: 'Dynamic user interfaces.',
+    tags: ['React', 'Tailwind'],
     colSpan: 'md:col-span-1 md:row-span-1',
     color: 'from-zinc-700 to-zinc-900'
   }

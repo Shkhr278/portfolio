@@ -23,7 +23,7 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-fluid-p uppercase tracking-[0.3em] text-[var(--color-neon-blue)] block mb-6 font-medium">
-            Software Engineer & Designer
+            Hi, I'm Shikhar Singh
           </span>
         </motion.div>
 
@@ -33,10 +33,10 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-fluid-h1 mb-6 text-glow"
         >
-          Building <br className="hidden sm:block" />
+          Full Stack <br className="hidden sm:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-blue)] via-[var(--color-neon-purple)] to-[var(--color-neon-pink)]">
-            Immersive
-          </span> Experiences
+            Developer
+          </span> 
         </motion.h1>
 
         <motion.p 
@@ -45,7 +45,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.6 }}
           className="text-fluid-p max-w-2xl text-subtle font-light mt-4 mb-12 mix-blend-plus-lighter"
         >
-          Focusing on high-performance, fluid, and visually stunning web applications that break away from standard templates and provide exceptional user experiences.
+          Passionate and self-driven developer focused on building dynamic, responsive, and user-friendly web applications, specializing in modern React architectures.
         </motion.p>
         
         <motion.div

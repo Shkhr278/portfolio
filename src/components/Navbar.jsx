@@ -27,6 +27,7 @@ export default function Navbar() {
         
         <div className="flex items-center gap-4 md:gap-8">
           <ul className={`hidden md:flex items-center gap-8 ${isScrolled ? 'text-sm' : 'text-base'} font-medium transition-all`}>
+            <li><a href="#about" onClick={(e) => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">About</a></li>
             <li><a href="#projects" onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">Works</a></li>
             <li><a href="#contact" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">Contact</a></li>
           </ul>
