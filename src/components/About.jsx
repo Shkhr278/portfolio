@@ -31,10 +31,10 @@ export default function About() {
       <div className="absolute top-1/2 right-0 -z-10 h-[300px] w-[300px] translate-x-1/3 -translate-y-1/2 opacity-20 blur-[100px] rounded-full bg-[var(--color-neon-blue)] pointer-events-none" />
       
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0.2, filter: "blur(8px)", y: 20, scale: 0.95 }}
+        whileInView={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
+        viewport={{ once: false, margin: "-15%" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="glass-panel p-8 md:p-12 mb-12"
       >
         <div className="flex items-center gap-4 mb-8">
@@ -76,36 +76,47 @@ export default function About() {
         </div>
       </motion.div>
 
-      {/* Education Timeline */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="glass-panel p-8 md:p-12 w-full"
-      >
-        <div className="flex items-center gap-4 mb-10">
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">Education</h2>
-          <div className="h-[2px] w-24 bg-gradient-to-r from-[var(--color-neon-purple)] to-transparent rounded-full" />
+      {/* Education Timeline with Blur Scroll */}
+      <div className="w-full mt-20 md:mt-32 relative">
+        <div className="flex flex-col items-center justify-center mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">Education</h2>
+          <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-[var(--color-neon-purple)] to-transparent" />
         </div>
 
-        <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-[var(--color-neon-purple)] before:via-[var(--color-neon-blue)] before:to-transparent">
-          {education.map((item, index) => (
-             <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-               {/* Icon */}
-               <div className={`flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] shadow-[0_0_15px_var(--color-neon-blue)] group-hover:scale-110 transition-transform shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 relative ${index === 0 ? 'bg-[var(--color-neon-pink)] shadow-[0_0_15px_var(--color-neon-pink)]' : 'bg-[var(--color-neon-blue)]'}`}></div>
-               {/* Card */}
-               <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-black/40 border border-white/5 p-6 rounded-2xl group-hover:bg-white/5 transition-colors">
-                  <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-2 gap-2">
-                    <h3 className="font-bold text-xl text-white">{item.degree}</h3>
-                    <span className="text-sm font-mono text-[var(--color-neon-blue)] bg-white/5 px-2 py-1 rounded-md inline-block w-fit">{item.duration}</span>
+        <div className="relative max-w-5xl mx-auto">
+          {/* Vertical Glowing Timeline Line */}
+          <div className="absolute left-[31px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[var(--color-neon-blue)] to-transparent md:-translate-x-1/2 opacity-30 shadow-[0_0_15px_var(--color-neon-blue)]" />
+          
+          <div className="space-y-16 md:space-y-24">
+            {education.map((item, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0.2, filter: "blur(8px)", scale: 0.95 }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                viewport={{ once: false, margin: "-15%" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+              >
+                {/* Center Node (Dot) */}
+                <div className="absolute left-[29px] md:left-1/2 w-4 h-4 rounded-full bg-[var(--color-neon-pink)] shadow-[0_0_15px_var(--color-neon-pink)] transform -translate-x-1/2 z-10 md:translate-x-[-8px]" />
+                
+                {/* Content Card */}
+                <div className={`w-full pl-24 md:pl-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-16 lg:pl-24' : 'md:pr-16 lg:pr-24'}`}>
+                  <div className="glass-panel hover:bg-white/[0.04] border border-white/5 hover:border-[var(--color-neon-blue)]/50 rounded-2xl p-8 backdrop-blur-md transition-all duration-500 overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-neon-blue)]/0 to-[var(--color-neon-purple)]/0 group-hover:from-[var(--color-neon-blue)]/10 group-hover:to-[var(--color-neon-purple)]/10 transition-colors duration-500 pointer-events-none" />
+                    
+                    <div className="relative z-10">
+                      <span className="text-xs font-mono text-[var(--color-neon-blue)] mb-3 block tracking-widest uppercase">{item.duration}</span>
+                      <h3 className="font-bold text-xl md:text-2xl text-white mb-2 leading-tight">{item.degree}</h3>
+                      <p className="text-subtle font-light text-base">{item.institution}</p>
+                    </div>
                   </div>
-                  <p className="text-gray-400 font-light">{item.institution}</p>
-               </div>
-             </div>
-          ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -4,23 +4,16 @@ import { ExternalLink, Github, Folder } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-commerce Platform',
-    description: 'A premium, high-performance e-commerce storefront with real-time inventory synchronization and dynamic cart logic.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe'],
+    title: 'CareerVision AI',
+    description: 'A full-stack AI-powered career development platform. Features an Agentic AI system using LangChain for personalized recommendations, an ATS resume builder, resume scoring, and real-time AI interview simulations.',
+    tech: ['React', 'Node.js', 'FastAPI', 'MongoDB', 'LangChain'],
     github: '#',
     live: '#',
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative productivity tool reflecting a simplistic but highly functional aesthetic with real-time updates.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    github: '#',
-    live: '#',
-  },
-  {
-    title: 'Design System',
-    description: 'A comprehensive headless component library built for internal tooling, supporting rapid prototyping and robust theming.',
-    tech: ['Vue', 'Storybook', 'Figma', 'CSS Modules'],
+    title: 'FairFare',
+    description: 'A comprehensive expense management web application. Includes real-time balance tracking, group expenses, automated settlements, push notifications, and an AI assistant for natural-language expense queries.',
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
     github: '#',
     live: '#',
   }
@@ -40,10 +33,10 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+            initial={{ opacity: 0.2, filter: "blur(10px)", y: 30, scale: 0.95 }}
+            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
+            viewport={{ once: false, margin: "-10%" }}
+            transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
             className="group relative block rounded-3xl p-8 glass-card hover:-translate-y-2 transition-transform duration-300 h-full flex flex-col"
           >
             {/* Hover Glow Effect */}

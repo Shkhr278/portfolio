@@ -7,6 +7,7 @@ export default function Hero() {
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.85]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
+  const blurValue = useTransform(scrollYProgress, [0, 0.3], ["blur(0px)", "blur(12px)"]);
 
   return (
     <section 
@@ -14,12 +15,12 @@ export default function Hero() {
       className="relative min-h-[95vh] flex flex-col justify-center items-center text-center px-4 md:px-8 overflow-hidden"
     >
       <motion.div 
-        style={{ scale, opacity, y }}
+        style={{ scale, opacity, y, filter: blurValue }}
         className="max-w-7xl mx-auto flex flex-col items-center z-10 w-full"
       >
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-fluid-p uppercase tracking-[0.3em] text-[var(--color-neon-blue)] block mb-6 font-medium">
@@ -28,8 +29,8 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, filter: "blur(12px)", y: 30 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-fluid-h1 mb-6 text-glow"
         >
@@ -40,8 +41,8 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, filter: "blur(8px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 1, delay: 0.6 }}
           className="text-fluid-p max-w-2xl text-subtle font-light mt-4 mb-12 mix-blend-plus-lighter"
         >
@@ -56,6 +57,10 @@ export default function Hero() {
         >
           <a 
             href="#projects" 
+            onClick={(e) => { 
+              e.preventDefault(); 
+              document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); 
+            }}
             className="group relative inline-flex items-center justify-center px-10 py-4 rounded-full font-medium overflow-hidden transition-transform hover:scale-105 active:scale-95 glass-panel text-foreground"
           >
             <span className="relative z-10 font-semibold tracking-wide text-lg">Explore Work</span>
