@@ -23,9 +23,9 @@ export default function BentoGrid() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className="text-fluid-h2 mb-12 text-glow text-center md:text-left">
-          Selected{" "}
+          Major{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-pink)] to-[var(--color-neon-purple)]">
-            Works
+            Projects
           </span>
         </h2>
 
@@ -43,14 +43,21 @@ export default function BentoGrid() {
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-10 z-0`}
               ></div>
-              <div className="relative z-10 flex flex-col h-full">
+              <div className="relative z-10 flex flex-col h-full group">
                 <h3 className="text-2xl font-bold tracking-tight text-white mb-2">
-                  {project.title}
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="after:absolute after:inset-0 after:z-10 cursor-pointer hover:text-[var(--color-neon-blue)] transition-colors"
+                  >
+                    {project.title}
+                  </a>
                 </h3>
                 <p className="text-base mt-2 mb-6 font-light text-gray-300">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-2 mt-auto relative z-20">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -94,14 +101,21 @@ export default function BentoGrid() {
                         "text-3xl font-bold tracking-tight text-white mb-0"
                       }
                     >
-                      {project.title}
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="after:absolute after:inset-0 after:z-10 cursor-pointer group-hover:text-[var(--color-neon-blue)] transition-colors"
+                      >
+                        {project.title}
+                      </a>
                     </h3>
                     {project.hasExternalLink && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`p-2 bg-white/5 rounded-full hover:bg-white/20 ${project.linkColor || "hover:text-[var(--color-neon-blue)]"} transition-all pointer-events-auto shadow-xl backdrop-blur-md hidden md:flex`}
+                        className={`relative z-20 p-2 bg-white/5 rounded-full hover:bg-white/20 ${project.linkColor || "hover:text-[var(--color-neon-blue)]"} transition-all pointer-events-auto shadow-xl backdrop-blur-md hidden md:flex`}
                       >
                         <ExternalLink size={20} />
                       </a>
