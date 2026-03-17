@@ -1,10 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import Layout from './components/Layout'
 import BackgroundAurora from './components/BackgroundAurora'
 import Hero from './components/Hero'
-import About from './components/About'
-import BentoGrid from './components/BentoGrid'
-import Contact from './components/Contact'
+
+const About = lazy(() => import('./components/About'))
+const BentoGrid = lazy(() => import('./components/BentoGrid'))
+const Contact = lazy(() => import('./components/Contact'))
 
 function App() {
   useEffect(() => {
@@ -22,9 +23,11 @@ function App() {
       <BackgroundAurora />
       <div className="flex flex-col relative z-10 w-full overflow-hidden">
         <Hero />
-        <About />
-        <BentoGrid />
-        <Contact />
+        <Suspense fallback={<div className="min-h-screen bg-transparent" />}>
+          <About />
+          <BentoGrid />
+          <Contact />
+        </Suspense>
       </div>
     </Layout>
   )

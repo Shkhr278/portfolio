@@ -1,4 +1,4 @@
-import { AlignCenter } from "lucide-react";
+// Empty to maintain line count if needed, or just remove. Or just remove line.
 
 export const bentoProjects = [
   {

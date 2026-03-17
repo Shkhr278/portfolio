@@ -9,15 +9,10 @@
   --color-neon-blue: #00e5ff;
   --color-neon-pink: #ff107a;
   
-  --color-glass-bg: rgba(15, 15, 15, 0.4);
+  --color-glass-bg: rgba(15, 15, 15, 0.6);
   --color-glass-border: rgba(255, 255, 255, 0.08);
 
-  --font-sans: "Inter", "Outfit", system-ui, -apple-system, sans-serif;
-  
-  @keyframes aurora {
-    0% { background-position: 50% 50%, 50% 50%; }
-    100% { background-position: 350% 50%, 350% 50%; }
-  }
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
@@ -58,14 +53,14 @@
     font-size: clamp(2rem, 6vw, 4.5rem);
     line-height: 1.1;
     letter-spacing: -0.03em;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   .text-fluid-h3 {
     font-size: clamp(1.25rem, 3vw, 2.5rem);
     line-height: 1.2;
     letter-spacing: -0.02em;
-    font-weight: 600;
+    font-weight: 800;
   }
 
   .text-fluid-p {
@@ -77,11 +72,16 @@
   /* Glassmorphism & Neon Bento Box Utilities */
   .glass-panel {
     background: var(--color-glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--color-glass-border);
     border-radius: 1.5rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  @media (min-width: 769px) {
+    .glass-panel {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
   }
 
   .neon-glow {
@@ -92,21 +92,27 @@
   .neon-glow::before {
     content: '';
     position: absolute;
-    inset: -2px;
+    inset: -1px;
     background: linear-gradient(120deg, var(--color-neon-purple), var(--color-neon-blue), var(--color-neon-pink));
     z-index: -1;
-    filter: blur(15px);
+    filter: blur(4px);
     opacity: 0;
     border-radius: inherit;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
   }
   
   .neon-glow:hover::before {
-    opacity: 0.6;
+    opacity: 0.4;
   }
 
   .text-glow {
-    text-shadow: 0 0 30px rgba(176, 38, 255, 0.5);
+    text-shadow: 0 0 10px rgba(176, 38, 255, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .text-glow {
+      text-shadow: none;
+    }
   }
 
   /* Grid auto-fit for fully responsive bento rows without strict media queries */

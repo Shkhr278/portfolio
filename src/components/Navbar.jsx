@@ -1,5 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { useScroll, useMotionValueEvent } from 'framer-motion';
+
+const NavLinks = memo(({ isScrolled }) => (
+  <ul className={`hidden md:flex items-center gap-8 ${isScrolled ? 'text-sm' : 'text-base'} font-normal transition-all`}>
+    <li><a href="#about" onClick={(e) => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">About</a></li>
+    <li><a href="#projects" onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">Works</a></li>
+    <li><a href="#contact" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">Contact</a></li>
+  </ul>
+));
+
+const Logo = memo(() => (
+  <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-xl font-extrabold tracking-tighter text-white hover:text-[var(--color-neon-blue)] transition-all duration-300 active:scale-95">
+    PORTFOLIO<span className="text-[var(--color-neon-pink)] text-glow">.</span>
+  </a>
+));
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,20 +28,13 @@ export default function Navbar() {
       <div 
         className={`flex items-center justify-between transition-all duration-500 pointer-events-auto ${
           isScrolled 
-            ? 'glass-panel px-8 py-4 rounded-full w-full max-w-4xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]' 
+            ? 'glass-panel px-8 py-4 rounded-full w-full max-w-4xl shadow-lg' 
             : 'px-4 py-4 w-full max-w-7xl bg-transparent'
         }`}
       >
-        <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-xl font-bold tracking-tighter text-white hover:text-[var(--color-neon-blue)] transition-all duration-300 active:scale-95">
-          PORTFOLIO<span className="text-[var(--color-neon-pink)] text-glow">.</span>
-        </a>
-        
+        <Logo />
         <div className="flex items-center gap-4 md:gap-8">
-          <ul className={`hidden md:flex items-center gap-8 ${isScrolled ? 'text-sm' : 'text-base'} font-medium transition-all`}>
-            <li><a href="#about" onClick={(e) => { e.preventDefault(); document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">About</a></li>
-            <li><a href="#projects" onClick={(e) => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">Works</a></li>
-            <li><a href="#contact" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-all duration-300 active:scale-95 inline-block">Contact</a></li>
-          </ul>
+          <NavLinks isScrolled={isScrolled} />
         </div>
       </div>
     </nav>

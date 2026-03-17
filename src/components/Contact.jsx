@@ -11,13 +11,13 @@ export default function Contact() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left Side: Typography & Info */}
         <motion.div
-          initial={{ opacity: 0.2, filter: "blur(8px)", x: -40, scale: 0.95 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", x: 0, scale: 1 }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex flex-col gap-6"
         >
-          <h2 className="text-fluid-h2 text-white font-bold tracking-tighter">
+          <h2 className="text-fluid-h2 text-white font-extrabold tracking-tighter">
             Let's Build Something <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-neon-blue)] to-[var(--color-neon-purple)]">
               Extraordinary.
@@ -33,7 +33,7 @@ export default function Contact() {
           <div className="flex flex-wrap items-center gap-4 mt-6">
             <a
               href="mailto:shikhars.singh27@gmail.com"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold overflow-hidden transition-transform hover:scale-105 active:scale-95 bg-white text-black"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-extrabold overflow-hidden transition-transform hover:scale-105 active:scale-95 bg-white text-black"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Mail size={18} />
@@ -46,7 +46,7 @@ export default function Contact() {
               href="https://github.com/Shkhr278"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center p-4 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 hover:text-[var(--color-neon-purple)] transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center p-4 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 hover:text-[var(--color-neon-purple)] transition-all"
               aria-label="GitHub"
             >
               <Github size={22} />
@@ -56,7 +56,7 @@ export default function Contact() {
               href="https://linkedin.com/in/shikhars-singh"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center p-4 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 hover:text-[var(--color-neon-blue)] transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center p-4 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 hover:text-[var(--color-neon-blue)] transition-all"
               aria-label="LinkedIn"
             >
               <Linkedin size={22} />
@@ -66,10 +66,10 @@ export default function Contact() {
 
         {/* Right Side: Contact Form */}
         <motion.div
-          initial={{ opacity: 0.2, filter: "blur(8px)", x: 40, scale: 0.95 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", x: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-10%" }}
+        transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
         >
           <form
             onSubmit={(e) => e.preventDefault()}
@@ -80,52 +80,60 @@ export default function Contact() {
             <div className="relative z-10 flex flex-col gap-2">
               <label
                 htmlFor="name"
-                className="text-xs text-subtle font-medium uppercase tracking-wider ml-1"
+                className="text-xs text-subtle font-normal uppercase tracking-wider ml-1"
               >
                 Name
               </label>
               <input
                 type="text"
                 id="name"
+                name="name"
+                autoComplete="name"
                 className="bg-black/40 border border-white/10 rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:border-[var(--color-neon-blue)] focus:ring-1 focus:ring-[var(--color-neon-blue)] transition-all"
                 placeholder="John Doe"
+                required
               />
             </div>
 
             <div className="relative z-10 flex flex-col gap-2">
               <label
                 htmlFor="email"
-                className="text-xs text-subtle font-medium uppercase tracking-wider ml-1"
+                className="text-xs text-subtle font-normal uppercase tracking-wider ml-1"
               >
                 Email
               </label>
               <input
                 type="email"
                 id="email"
+                name="email"
+                autoComplete="email"
                 className="bg-black/40 border border-white/10 rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:border-[var(--color-neon-purple)] focus:ring-1 focus:ring-[var(--color-neon-purple)] transition-all"
                 placeholder="john@example.com"
+                required
               />
             </div>
 
             <div className="relative z-10 flex flex-col gap-2">
               <label
                 htmlFor="message"
-                className="text-xs text-subtle font-medium uppercase tracking-wider ml-1"
+                className="text-xs text-subtle font-normal uppercase tracking-wider ml-1"
               >
                 Message
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows="4"
                 className="bg-black/40 border border-white/10 rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:border-[var(--color-neon-pink)] focus:ring-1 focus:ring-[var(--color-neon-pink)] transition-all resize-none"
                 placeholder="Tell me about your project..."
+                required
               ></textarea>
             </div>
 
             <button
               href="mailto:shikhars.singh27@gmail.com"
               type="submit"
-              className="relative z-10 group flex items-center justify-center gap-3 bg-white text-black font-bold py-4 px-8 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] mt-2 overflow-hidden"
+              className="relative z-10 group flex items-center justify-center gap-3 bg-white text-black font-extrabold py-4 px-8 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98] mt-2 overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Send Message
@@ -141,10 +149,10 @@ export default function Contact() {
       </div>
 
       <motion.footer 
-        initial={{ opacity: 0.2, filter: "blur(8px)", scale: 0.95 }}
-        whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-5%" }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className="mt-12 text-center text-sm text-subtle font-mono border-t border-white/5 pt-8"
       >
         <p>
